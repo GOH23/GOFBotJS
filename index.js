@@ -104,9 +104,7 @@ client.on("messageCreate", async msg => {
 
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
-
-  GameCommandsInteraction(interaction);
-  AdminCmds(interaction);
+  //AdminCmds(interaction);
 
   if (interaction.commandName === "donate") {
     await interaction.reply({
