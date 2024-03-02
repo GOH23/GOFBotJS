@@ -135,7 +135,6 @@ client.on(Events.InteractionCreate, async interaction => {
     await interaction.reply({ content: "Успешно отправлено на рассмотрение", ephemeral: true })
   }
   SetCommandForGifs(interaction, interaction.user);
-  MusicFunc(interaction,streamer);
   if (interaction.commandName === "generate_art") {
     await interaction.deferReply({ ephemeral: false });
     GenerateAIImage(interaction);
