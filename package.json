@@ -1,0 +1,51 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "]"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dank074/discord-video-stream": "^3.0.2",
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/rest": "^2.0.1",
+    "@discordjs/voice": "^0.16.0",
+    "base64-img": "^1.0.4",
+    "convert-base64-to-image": "^0.0.16",
+    "deepai": "^1.0.23",
+    "discord-api-types": "^0.37.56",
+    "discord-bot-youtube-notifications": "^1.1.6",
+    "discord-music-player": "^9.1.1",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.4.5",
+    "fakeyou.js": "^1.1.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.2.0",
+    "firebase-admin": "^11.11.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "libsodium-wrappers": "^0.7.13",
+    "nodemon": "^3.0.1",
+    "openai": "^4.11.0",
+    "opusscript": "^0.0.8",
+    "random": "^4.1.0",
+    "rss-parser": "^3.13.0",
+    "sodium": "^3.0.2",
+    "sodium-native": "^4.0.4",
+    "tenorjs": "^1.0.10",
+    "tweetnacl": "^1.0.3",
+    "typescript": "^5.2.2",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "waifu-generator": "^3.0.0"
+  }
+}
