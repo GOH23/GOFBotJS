@@ -9,7 +9,7 @@ const ModelObject = [
 		name: "dreamlike-anime-1.0",
 		value: "dreamlike-anime-1.0.safetensors"
 	}]
-export const url = "http://127.0.0.1:7860";
+export const url = "http://0.0.0.0:7861";
 export const row = new ActionRowBuilder().addComponents(
 	new ButtonBuilder()
 		.setCustomId("torating")

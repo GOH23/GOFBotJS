@@ -69,26 +69,29 @@ export const CommandsForGifs = [{
 export default function SetCommandForGifs(interaction, FromUser) {
 
     CommandsForGifs.map(async (el) => {
-        if (interaction.commandName === el.CmdName) {
+        try{
+            if (interaction.commandName === el.CmdName) {
 
-            const ToUserId = interaction.options.getMember("user")?.user
-            if (el?.Games.length == 0) {
-                Tenor.Search.Query(el.Tags[random.int(0, el.Tags.length-1)], "50").then(async (res) => {
-                    await interaction.reply({ content: `${FromUser} ${el.ReplyMess} ${ToUserId}`, embeds: [new EmbedBuilder().setColor(Colors.Aqua).setImage(res[random.int(0, 50)].media_formats.gif.url)] });
-                }).catch(async (err) => {
-                    await interaction.reply({ content: "Ошибка, попробуйте еще раз!", ephemeral: true });
-                })
-            } else {
-                const Game = interaction.options.getString("games")
-                var Tags = el.Games.filter(el => el.Name == Game)[0].Tags
-                Tenor.Search.Query(Tags[random.int(0, Tags.length-1)], "50").then(async (res) => {
-                    await interaction.reply({ content: `${FromUser}`, embeds: [new EmbedBuilder().setColor(Colors.Aqua).setImage(res[random.int(0, 50)].media_formats.gif.url)] });
-                }).catch(async (err) => {
-                    await interaction.reply({ content: "Ошибка, попробуйте еще раз!", ephemeral: true });
-                })
+                const ToUserId = interaction.options.getMember("user")?.user
+                if (el?.Games?.length == 0) {
+                    Tenor.Search.Query(el.Tags[random.int(0, el.Tags.length-1)], "50").then(async (res) => {
+                        await interaction.reply({ content: `${FromUser} ${el.ReplyMess} ${ToUserId}`, embeds: [new EmbedBuilder().setColor(Colors.Aqua).setImage(res[random.int(0, 50)].media_formats.gif.url)] });
+                    }).catch(async (err) => {
+                        await interaction.reply({ content: "Ошибка, попробуйте еще раз!", ephemeral: true });
+                    })
+                } else {
+                    const Game = interaction.options.getString("games")
+                    var Tags = el?.Games?.filter(el => el.Name == Game)[0].Tags
+                    Tenor.Search.Query(Tags[random.int(0, Tags?.length-1)], "50").then(async (res) => {
+                        await interaction.reply({ content: `${FromUser}`, embeds: [new EmbedBuilder().setColor(Colors.Aqua).setImage(res[random.int(0, 50)].media_formats.gif.url)] });
+                    }).catch(async (err) => {
+                        await interaction.reply({ content: "Ошибка, попробуйте еще раз!", ephemeral: true });
+                    })
+                }
+    
+    
             }
-
-
         }
+        catch{ await interaction.reply({ content: "Ошибка,возможно команда немного не доработана попробуйте еще раз!", ephemeral: true }); }
     })
 }
