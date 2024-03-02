@@ -49,7 +49,7 @@ export function GetImageFromSD(interaction) {
 		//denoising_strength: 6.5,
 		//hr_scale: 2,
 		sampler_name: "DPM++ 2M SDE Karras",
-		steps: 25
+		steps: 10
 	});
 }
 export const CreateTyanData = data.toJSON();
