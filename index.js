@@ -1,7 +1,6 @@
 import { Client, GatewayIntentBits, Events, REST, Routes, SlashCommandBuilder, ActivityType, ComponentType, ForumChannel, GuildForumThreadManager } from 'discord.js';
 import { Primer } from './Commands/GetVideo/Primer.js';
 import { LastVideo } from './Commands/GetVideo/LastVideo.js';
-import { CreateTyanData } from './Commands/Stable Diffusion/createtyan.js';
 import { CreateDonateData, ButtonsDonateRow } from './Commands/donate.js';
 import { CreateEmbedMessage, SetEmbedMessage } from './Commands/embed_message.js';
 import { CreateMessForOpenData, SendDMMessage } from './Commands/create_krutki.js';
@@ -11,6 +10,8 @@ import { GenerateAIImage } from './Commands/Stable Diffusion/command.js';
 import { MusicCommands } from './Commands/Music/SlashComandsBuilder.js';
 import MusicFunc from './Commands/Music/index.js';
 import { config } from 'dotenv';
+import AIPipeline from './Commands/QuestionAnswering/index.js';
+import { commands } from './commands.js';
 config();
 const client = new Client({
   intents: [
@@ -39,13 +40,9 @@ setInterval(() => {
   }).catch(e => {
     //console.log(e)
   })
-}, 5000);
+}, 10000);
 
-const commands = []
-commands.push(CreateTyanData)
-commands.push(CreateDonateData)
-commands.push(CreateEmbedMessage)
-commands.push(CreateMessForOpenData)
+
 CommandsForGifs.map((el) => {
   var data = new SlashCommandBuilder()
   if (el?.Games == undefined) {
@@ -105,7 +102,8 @@ client.on("messageCreate", async msg => {
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
   //AdminCmds(interaction);
-
+  MusicFunc(interaction);
+  AIPipeline(interaction);
   if (interaction.commandName === "donate") {
     await interaction.reply({
       content: "Пожертвования GAMES OF STREAMS",

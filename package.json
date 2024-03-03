@@ -19,6 +19,7 @@
     "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^2.0.1",
     "@discordjs/voice": "^0.16.0",
+    "@xenova/transformers": "^2.15.1",
     "base64-img": "^1.0.4",
     "convert-base64-to-image": "^0.0.16",
     "deepai": "^1.0.23",
