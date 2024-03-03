@@ -78,6 +78,7 @@ const rest = new REST({ version: '9' }).setToken(token);
   } catch (error) {
     console.error(error);
   }
+  
 })();
 client.on("messageCreate", async msg => {
   if (msg.author.bot) {
