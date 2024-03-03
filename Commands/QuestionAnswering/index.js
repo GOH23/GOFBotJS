@@ -19,7 +19,7 @@ export default async function AIPipeline(interaction) {
 
         // Generate a response
         await generator(prompt, {
-            max_new_tokens: 5000,
+            max_new_tokens: 500,
             temperature: 0.7,
             do_sample: true,
             top_k: 50,
